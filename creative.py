@@ -15,7 +15,8 @@ class Book(Base):
     bookPages = Column('bookPages',Integer)
     bookAuthor = Column('bookAuthor',String)
 
-    def __init__(self,):
+    def __init__(self,bookName,bookPages,bookAuthor):
+        
 
 
 
