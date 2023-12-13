@@ -8,6 +8,6 @@ Base = declarative_base()
 
 class Book(Base):
     __tablename__='books'
-    # bookId = Column('bookId',)
+    bookId = Column('bookId',)
 
 
