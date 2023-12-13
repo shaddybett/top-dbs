@@ -20,6 +20,8 @@ class Book(Base):
         self.bookAuthor = bookAuthor
         self.bookPages = bookPages
 
+    def add_book(self,)    
+
 
 
 
