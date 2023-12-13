@@ -16,6 +16,9 @@ class Book(Base):
     bookAuthor = Column('bookAuthor',String)
 
     def __init__(self,bookName,bookPages,bookAuthor):
+        self.bookName = bookName
+        self.bookPages = bookPages
+        self.bookAuthor = bookAuthor
         
 
 
