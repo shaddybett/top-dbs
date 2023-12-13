@@ -23,7 +23,7 @@ class Book(Base):
         self.bookAuthor = bookAuthor
         self.bookPages = bookPages
 
-    def add_book(bookName=bookName,bookAuthor=bookAuthor,bookPages=bookPages):
+    def add_book(self,bookName,bookPages,bookAuthor):
         exists = session.query(Book).filter(Book.bookName == bookName).all()
         if len(exists) > 0:
             print('Name already exists')
@@ -32,7 +32,7 @@ class Book(Base):
             session.add(new_Book)
             session.commit()
             print('New book added')    
-            
+
 new_Book = Book(bookName='The Art Of Coding',bookPages=400,bookAuthor='Kipkorir')
 new_Book.add_book
 
