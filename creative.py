@@ -4,6 +4,9 @@ from sqlalchemy.orm import sessionmaker
 import uuid
 engine = create_engine('sqlite:///creativeDB.db')
 
+Session = sessionmaker
+session = Session()
+
 Base = declarative_base()
 
 def generate_uuid():
