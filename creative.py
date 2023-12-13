@@ -16,7 +16,8 @@ class Book(Base):
     bookAuthor = Column('bookAuthor',String)
 
     @classmethod
-    
+    def add_book(cls,bookName,bookPages,bookAuthor):
+        
 
 
 
