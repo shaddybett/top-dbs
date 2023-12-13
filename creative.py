@@ -7,7 +7,7 @@ engine = create_engine('sqlite:///creativeDB.db')
 Base = declarative_base()
 
 class Book(Base):
-    # __tablename__='books'
+    __tablename__='books'
     # bookId = Column('bookId',)
 
 
