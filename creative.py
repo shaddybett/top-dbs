@@ -1,13 +1,14 @@
 from sqlalchemy import create_engine,String,Column,Integer
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-
+import uuid
 engine = create_engine('sqlite:///creativeDB.db')
 
 Base = declarative_base()
 
+
 class Book(Base):
     __tablename__='books'
-    bookId = Column('bookId',)
+    bookId = Column('bookId',primary_key=True,)
 
 
