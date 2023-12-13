@@ -15,9 +15,10 @@ class Book(Base):
     bookPages = Column('bookPages',Integer)
     bookAuthor = Column('bookAuthor',String)
 
-    @classmethod
-    def add_book(cls,bookName,bookPages,bookAuthor):
-        
+    def __init__(self,bookName,bookPages,bookAuthor):
+        self.bookName = bookName
+        self.bookAuthor = bookAuthor
+        self.bookPages = bookPages
 
 
 
