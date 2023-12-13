@@ -4,5 +4,5 @@ from sqlalchemy.orm import sessionmaker
 
 engine = create_engine('sqlite:///creativeDB.db')
 
-# Base = declarative_base()
+Base = declarative_base()
 
