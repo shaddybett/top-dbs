@@ -6,7 +6,8 @@ engine = create_engine('sqlite:///creativeDB.db')
 
 Base = declarative_base()
 
-
+def generate_uuid():
+    return str (uuid.uuid4())
 class Book(Base):
     __tablename__='books'
     bookId = Column('bookId',primary_key=True,)
