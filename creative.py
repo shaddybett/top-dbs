@@ -10,6 +10,6 @@ def generate_uuid():
     return str (uuid.uuid4())
 class Book(Base):
     __tablename__='books'
-    bookId = Column('bookId',primary_key=True,)
+    bookId = Column('bookId',primary_key=True,default=generate_uuid)
 
 
