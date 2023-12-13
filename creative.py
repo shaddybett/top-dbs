@@ -34,6 +34,6 @@ class Book(Base):
             print('New book added')    
 
 new_Book = Book(bookName='The Art Of Coding',bookPages=400,bookAuthor='Kipkorir')
-new_Book.add_book
+new_Book.add_book()
 
 
