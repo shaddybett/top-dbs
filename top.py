@@ -17,4 +17,11 @@ class Movie(Base):
         self.movieWriter = movieWriter
 
 def add_movie(movieName,movieWriter):
-    
+    exists = session.query(Movie).filter_by(movieName=movieName).all()
+    if exists:
+        print('Name already exists')
+    else:
+        new_movie = Movie(movieName,movieWriter)
+        session.add(new_movie)
+        session.commit()
+            
