@@ -46,5 +46,5 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 import uuid
 
-# def generate_uuid():
-#     return str(uuid.uuid4()) 
+def generate_uuid():
+    return str(uuid.uuid4()) 
