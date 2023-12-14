@@ -62,4 +62,22 @@ class Pet(Base):
         self.petAge = petAge
 
 def add_pet(petName,petBreed,petAge):
-    
+    exists = session.query(Pet).filter_by(petName=petName).all()
+    if exists:
+        print('pet already exists')
+    else:
+        new_pet = Pet(petName,petBreed,petAge)
+        session.add(new_pet)
+        session.commit()   
+
+db = 'sqlite:///puto.db'
+engine = create_engine(db)
+Base.metadata.create_all(bind=engine)
+Session = sessionmaker(bind=engine)
+session = Session()
+
+petName = 'Blue'
+petBreed = 'Chihuahua'
+petAge = 12
+add_pet(petName,petBreed,petAge)
+
