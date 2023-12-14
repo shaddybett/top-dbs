@@ -24,4 +24,7 @@ class City(Base):
 Base.metadata.create_all(engine)  
 
 Session = sessionmaker(bind=engine)
-session = Session()  
+session = Session()
+
+def add_city(self,cityName,cityPopulation,cityBoss):
+    
