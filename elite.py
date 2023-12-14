@@ -31,4 +31,7 @@ def add_city(session,cityName,cityPopulation,cityBoss):
     if len(new_city)>0:
         print('Name already exists')
     else:
+        new_city = City(cityName=cityName,cityPopulation=cityPopulation,cityBoss=cityBoss)
+        session.add(new_city)
+        session.commit()
 
