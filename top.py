@@ -16,3 +16,5 @@ class Movie(Base):
         self.movieName = movieName
         self.movieWriter = movieWriter
 
+def add_movie(movieName,movieWriter):
+    
