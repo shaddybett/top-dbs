@@ -9,7 +9,7 @@ Base = declarative_base()
 class Movie(Base):
     __tablename__='movies'
     moviedId = Column('movieId',primary_key=True,default=generate_uuid)
-    movieName = Column('movieNmae',String)
+    movieName = Column('movieName',String)
     movieWriter = Column('movieAuthor',String)
 
     def __init__(self,movieName,movieWriter):
@@ -24,8 +24,14 @@ def add_movie(movieName,movieWriter):
         new_movie = Movie(movieName,movieWriter)
         session.add(new_movie)
         session.commit()
+        print('Movie added successfully')
 
 db = 'sqlite:///movieDB.db'
 engine = create_engine(db)
+Base.metadata.create_all(db)
 Session = sessionmaker(bind=engine)
-session = Session()            
+session = Session()         
+
+movieName = 'The departed'
+MovieWriter = 'Charles Scott'
+add_movie(movieName,MovieWriter)   
