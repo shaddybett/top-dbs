@@ -18,4 +18,5 @@ class City(Base):
     __tablename__='cities'
     cityId = Column('cityId',String,primary_key=True,default=generate_uuid)
     cityName = Column('cityName',String)
-    cityPopulation = Column('cityPopulation',)
+    cityPopulation = Column('cityPopulation',String)
+    cityBoss = Column('cityBoss',String)
