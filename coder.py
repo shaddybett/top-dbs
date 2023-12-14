@@ -76,8 +76,8 @@ Base.metadata.create_all(bind=engine)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-petName = 'Blue'
-petBreed = 'Chihuahua'
-petAge = 12
+petName = 'Scar'
+petBreed = 'G.shepherd'
+petAge = 8
 add_pet(petName,petBreed,petAge)
 
