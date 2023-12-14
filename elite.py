@@ -8,4 +8,5 @@ db = 'sqlite:///eliteDB.db'
 # create sqlalchemy engine
 engine = create_engine(db,echo=True)
 
-# Base = declarative_base()
+# defined a declarative base
+Base = declarative_base()
