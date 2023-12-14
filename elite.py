@@ -20,3 +20,5 @@ class City(Base):
     cityName = Column('cityName',String)
     cityPopulation = Column('cityPopulation',String)
     cityBoss = Column('cityBoss',String)
+
+Base.metadata.create_all(engine)    
