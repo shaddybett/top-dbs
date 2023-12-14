@@ -60,7 +60,5 @@ for city in added_cities:
             print('No such city')
             
     def delete_city(session,cityName):
-        bad_city = session.query(City).filter_by(City.cityName == cityName).all()
-        if bad_city:
-            bad_city.delete()       
+        city_to_delete      
 session.close()
