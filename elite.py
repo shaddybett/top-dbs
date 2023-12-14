@@ -35,7 +35,9 @@ def add_city(session,cityName,cityPopulation,cityBoss):
         session.add(new_city)
         session.commit()
 
-city_data = [{'name':'Berlin','population':100000,'boss':'Professor'},{'name':'Denver','population':500000,'boss':'T.Charlie'}]
+city_data = [{'name':'Berlin','population':100000,'boss':'Professor'},
+             {'name':'Denver','population':500000,'boss':'T.Charlie'},
+             {'name':'Nairobi', 'population': 9000000,'boss':'Cooper'}]
 
 for data in city_data:
     add_city(session,cityName=data['name'],cityPopulation=data['population'],cityBoss=data['boss'])
@@ -45,3 +47,20 @@ print('Cities added')
 
 for city in added_cities:
     print(f"City ID: {city.cityId}, Name: {city.cityName}, Population: {city.cityPopulation}, Boss: {city.cityBoss}")
+
+    def update_cities(session,old_Boss,new_Boss):
+        cities_to_update = session.query(City).filter_by(cityBoss = old_Boss).all()
+
+        if cities_to_update:
+            for city in cities_to_update:
+                city.cityBoss = new_Boss
+            session.commit()
+            print(f"Cities with Boss '{old_Boss}' updated to 'new_Boss'")
+        else:
+            print('No such city')
+            
+    def delete_city(session,cityName):
+        bad_city = session.query(City).filter_by(City.cityName == cityName).all()
+        if bad_city:
+            bad_city.delete()       
+session.close()
