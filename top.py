@@ -1,34 +1,37 @@
-from sqlalchemy import create_engine, Column, Integer, String, Sequence
+from sqlalchemy import create_engine,String,Integer,Column
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+import uuid
 
-# Replace 'sqlite:///example.db' with your desired database connection string
-# For example, 'postgresql://username:password@localhost/dbname' for PostgreSQL
-engine = create_engine('sqlite:///example.db', echo=True)
-
+def generate_uuid():
+    return str(uuid.uuid4())
 Base = declarative_base()
+class Movie(Base):
+    __tablename__='movies'
+    movieId = Column('movieId',String,primary_key=True,default=generate_uuid)
+    movieName = Column('movieName',String)
+    movieWriter = Column('movieWriter',String)
 
-class User(Base):
-    __tablename__ = 'users'
-    id = Column(Integer, Sequence('user_id_seq'), primary_key=True)
-    name = Column(String(50))
-    age = Column(Integer)
+    def __init__(self,movieName,movieWriter):
+        self.movieName = movieName
+        self.movieWriter = movieWriter
 
-# Create the database tables
-Base.metadata.create_all(engine)
+def add_movie(movieName,movieWriter):
+    exists = session.query(Movie).filter_by(movieName=movieName).first()
+    if exists:
+        print('Name already exists')
+    else:
+        new_movie = Movie(movieName,movieWriter)
+        session.add(new_movie)
+        session.commit()
+        print('Movie added successfully')
 
-# Create a session to interact with the database
+db = 'sqlite:///movieDB.db'
+engine = create_engine(db)
+Base.metadata.create_all(bind=engine)
 Session = sessionmaker(bind=engine)
-session = Session()
+session = Session()         
 
-# Add a user to the database
-new_user = User(name='John Doe', age=30)
-session.add(new_user)
-session.commit()
-
-# Query the database
-queried_user = session.query(User).filter_by(name='John Doe').first()
-print(f'Queried User: {queried_user.name}, Age: {queried_user.age}')
-
-# Close the session
-session.close()
+movieName = 'Sea'
+MovieWriter = 'Mandalin Gofrey'
+add_movie(movieName,MovieWriter)   
