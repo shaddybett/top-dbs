@@ -42,3 +42,6 @@ for data in city_data:
 
 added_cities = session.query(City).all()
 print('Cities added')
+
+for city in added_cities:
+    print(f"City ID: {city.cityId}, Name: {city.cityName}, Population: {city.cityPopulation}, Boss: {city.cityBoss}")
