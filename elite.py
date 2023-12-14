@@ -6,7 +6,7 @@ import uuid
 db = 'sqlite:///eliteDB.db'
 
 def generate_uuid():
-    return str (uuid.uuid4())
+    return str(uuid.uuid4())
 
 # create sqlalchemy engine
 engine = create_engine(db,echo=True)
@@ -34,6 +34,11 @@ def add_city(session,cityName,cityPopulation,cityBoss):
         new_city = City(cityName=cityName,cityPopulation=cityPopulation,cityBoss=cityBoss)
         session.add(new_city)
         session.commit()
-city_data = [{'Berlin',100000,'Professor'},{'Denver',500000,'T.Charlie'}]
+
+city_data = [{'name':'Berlin','population':100000,'boss':'Professor'},{'name':'Denver','population':500000,'boss':'T.Charlie'}]
+
 for data in city_data:
-    add_city(data)
+    add_city(session,cityName=data['name'],cityPopulation=data['population'],cityBoss=data['boss'])
+
+added_cities = session.query(City).all()
+print('Cities added')
