@@ -27,4 +27,5 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 def add_city(session,cityName,cityPopulation,cityBoss):
-    new_city = session.query(City).filter_by()
+    new_city = session.query(City).filter_by(City.cityName == cityName):
+    
