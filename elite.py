@@ -11,4 +11,6 @@ engine = create_engine(db,echo=True)
 # defined a declarative base
 Base = declarative_base()
 
-
+class City(Base):
+    __tablename__='cities'
+    
