@@ -4,20 +4,20 @@ from sqlalchemy.orm import sessionmaker
 import uuid
 
 def generate_uuid():
-    return str(uuid.uuid4)
+    return str(uuid.uuid4())
 Base = declarative_base()
 class Movie(Base):
     __tablename__='movies'
-    moviedId = Column('movieId',primary_key=True,default=generate_uuid)
+    movieId = Column('movieId',String,primary_key=True,default=generate_uuid)
     movieName = Column('movieName',String)
-    movieWriter = Column('movieAuthor',String)
+    movieWriter = Column('movieWriter',String)
 
     def __init__(self,movieName,movieWriter):
         self.movieName = movieName
         self.movieWriter = movieWriter
 
 def add_movie(movieName,movieWriter):
-    exists = session.query(Movie).filter_by(movieName=movieName).all()
+    exists = session.query(Movie).filter_by(movieName=movieName).first()
     if exists:
         print('Name already exists')
     else:
@@ -32,6 +32,6 @@ Base.metadata.create_all(bind=engine)
 Session = sessionmaker(bind=engine)
 session = Session()         
 
-movieName = 'The departed'
-MovieWriter = 'Charles Scott'
+movieName = 'Sea'
+MovieWriter = 'Mandalin Gofrey'
 add_movie(movieName,MovieWriter)   
