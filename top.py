@@ -11,3 +11,8 @@ class Movie(Base):
     moviedId = Column('movieId',primary_key=True,default=generate_uuid)
     movieName = Column('movieNmae',String)
     movieWriter = Column('movieAuthor',String)
+
+    def __init__(self,movieName,movieWriter):
+        self.movieName = movieName
+        self.movieWriter = movieWriter
+
