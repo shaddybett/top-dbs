@@ -60,15 +60,15 @@ def update_cities(session, old_Boss, new_Boss):
     else:
         print('No such city')
 
-# def delete_city(session, cityName):
-#     city_to_delete = session.query(City).filter_by(cityName=cityName).first()
+def delete_city(session, cityName):
+    city_to_delete = session.query(City).filter_by(cityName=cityName).first()
 
-#     if city_to_delete:
-#         session.delete(city_to_delete)
-#         session.commit()
-#         print(f"City '{cityName}' deleted")
-#     else:
-#         print(f"City '{cityName}' not found")
+    if city_to_delete:
+        session.delete(city_to_delete)
+        session.commit()
+        print(f"City '{cityName}' deleted")
+    else:
+        print(f"City '{cityName}' not found")
 
 update_cities(session, old_Boss='Professor', new_Boss='Whales')
 
