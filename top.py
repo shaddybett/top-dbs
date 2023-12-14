@@ -9,4 +9,5 @@ Base = declarative_base()
 class Movie(Base):
     __tablename__='movies'
     moviedId = Column('movieId',primary_key=True,default=generate_uuid)
-    
+    movieName = Column('movieNmae',String)
+    movieWriter = Column('movieAuthor',String)
