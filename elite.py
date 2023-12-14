@@ -5,3 +5,7 @@ from sqlalchemy.orm import sessionmaker
 # after the imports make a database
 db = 'sqlite:///eliteDB.db'
 
+# create sqlalchemy engine
+engine = create_engine(db,echo=True)
+
+# Base = declarative_base()
