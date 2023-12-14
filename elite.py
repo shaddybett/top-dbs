@@ -5,6 +5,9 @@ import uuid
 # after the imports make a database
 db = 'sqlite:///eliteDB.db'
 
+def generate_uuid():
+    return str (uuid.uuid4())
+
 # create sqlalchemy engine
 engine = create_engine(db,echo=True)
 
