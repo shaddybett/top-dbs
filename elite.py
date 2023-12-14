@@ -27,8 +27,8 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 def add_city(session,cityName,cityPopulation,cityBoss):
-    new_city = session.query(City).filter_by(City.cityName == cityName).all():
+    new_city = session.query(City).filter_by(City.cityName == cityName).all()
     if len(new_city)>0:
         print('Name already exists')
     else:
-            
+
