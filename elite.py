@@ -60,5 +60,5 @@ for city in added_cities:
             print('No such city')
             
     def delete_city(session,cityName):
-        city_to_delete      
+        city_to_delete = session.query(City).filter_by(cityName=cityName).first()      
 session.close()
