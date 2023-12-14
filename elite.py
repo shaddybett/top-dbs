@@ -35,3 +35,5 @@ def add_city(session,cityName,cityPopulation,cityBoss):
         session.add(new_city)
         session.commit()
 city_data = [{'Berlin',100000,'Professor'},{'Denver',500000,'T.Charlie'}]
+for data in city_data:
+    add_city(data)
