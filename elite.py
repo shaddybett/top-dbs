@@ -72,7 +72,7 @@ def delete_city(session, cityName):
 
 update_cities(session, old_Boss='Professor', new_Boss='Whales')
 
-# # Delete example: Delete the city with name 'Denver'
+ # Delete example: Delete the city with name 'Denver'
 delete_city(session, cityName='Denver')
 
 # Query and print all cities after update and delete operations
@@ -81,5 +81,5 @@ print('\nCities after Update and Delete operations:')
 for city in updated_cities:
     print(f"City ID: {city.cityId}, Name: {city.cityName}, Population: {city.cityPopulation}, Boss: {city.cityBoss}")
 
-# # Close the session
+ # Close the session
 session.close()
