@@ -24,4 +24,8 @@ def add_movie(movieName,movieWriter):
         new_movie = Movie(movieName,movieWriter)
         session.add(new_movie)
         session.commit()
-            
+
+db = 'sqlite:///movieDB.db'
+engine = create_engine(db)
+Session = sessionmaker(bind=engine)
+session = Session()            
