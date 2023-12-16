@@ -11,4 +11,6 @@ class Member(Base):
     __tablename__='members'
     memberId = Column('memberId',String,primary_key=True,default=generate_uuid)
     memberName = Column('memberName',String)
-    # memberEmail = Column('memberEmail',String)
+    memberEmail = Column('memberEmail',String)
+    memberAge = Column('memberAge',Integer)
+    
