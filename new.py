@@ -5,7 +5,7 @@ import uuid
 
 def generate_uuid():
     return str(uuid.uuid4())
-Base = declarative_base
+Base = declarative_base()
 
 class Member(Base):
     __tablename__='members'
@@ -19,7 +19,7 @@ class Member(Base):
         self.memberAge = memberAge
         self.memberEmail = memberEmail
 
-db = 'sqlite :///newDB.db'
+db = 'sqlite:///newDB.db'
 engine = create_engine(db)
 Base.metadata.create_all(bind=engine)
 Session = sessionmaker(bind=engine)
