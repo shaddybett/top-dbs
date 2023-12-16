@@ -26,4 +26,4 @@ Session = sessionmaker(bind=engine)
 session = Session()    
 
 def add_member(memberName,memberAge,memberEmail,):
-    
+    exists = session.query(Member).filter_by()
