@@ -28,4 +28,8 @@ session = Session()
 def add_member(memberName,memberAge,memberEmail,):
     exists = session.query(Member).filter_by(memberEmail=memberEmail).first()
     if exists:
-        print('Email already exists')
+        print('Email already exists') 
+    else:
+        new_member=Member(memberName=memberName,memberEmail=memberEmail,memberAge=memberAge)
+        session.add(new_member)
+        session.commit()    
