@@ -33,3 +33,5 @@ def add_member(memberName,memberAge,memberEmail,):
         new_member=Member(memberName=memberName,memberEmail=memberEmail,memberAge=memberAge)
         session.add(new_member)
         session.commit()    
+
+memberName = 'Hali'
