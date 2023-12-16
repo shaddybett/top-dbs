@@ -19,4 +19,8 @@ class Member(Base):
         self.memberAge = memberAge
         self.memberEmail = memberEmail
 
-        
+db = 'sqlite :///newDB.db'
+# engine = create_engine(db)
+# Base.metadata.create_all(bind=engine)
+# Session = sessionmaker(bind=engine)
+# session = Session()        
