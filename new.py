@@ -14,3 +14,9 @@ class Member(Base):
     memberEmail = Column('memberEmail',String)
     memberAge = Column('memberAge',Integer)
     
+    def __init__(self,memberName,memberAge,memberEmail):
+        self.memberName = memberName
+        self.memberAge = memberAge
+        self.memberEmail = memberEmail
+
+        
