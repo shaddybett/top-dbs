@@ -14,10 +14,10 @@ class Member(Base):
     memberEmail = Column('memberEmail',String)
     memberAge = Column('memberAge',Integer)
     
-    def __init__(self,memberName,memberAge,memberEmail):
+    def __init__(self,memberName,memberEmail,memberAge):
         self.memberName = memberName
-        self.memberAge = memberAge
         self.memberEmail = memberEmail
+        self.memberAge = memberAge
 
 db = 'sqlite:///newDB.db'
 engine = create_engine(db)
@@ -34,7 +34,27 @@ def add_member(memberName,memberAge,memberEmail,):
         session.add(new_member)
         session.commit()    
 
-memberName = 'Kai'
-memberEmail='kai@gmail.com'
-memberAge = 26
-add_member(memberName,memberEmail,memberAge)
+memberName = 'Aisha'
+memberEmail='aisha@gmail.com'
+memberAge = 18
+# add_member(memberName,memberEmail,memberAge)
+
+def update_member(memberEmail):
+    member = session.query(Member).filter_by(memberEmail=memberEmail).first()
+    if member:
+        if member.memberEmail > 25:
+            member.memberEmail +=1
+            session.commit()
+        else:
+            print('Aint aging fr')  
+    else:
+        print('member not found')        
+
+# def delete_member(memberAge):
+#     members = session.query(Member).filter_by(memberAge=memberAge).all()
+#     if members:
+#         for member in members:
+#             session.delete(member) 
+#         session.commit()      
+#     else:
+#         print('Members not found')    
