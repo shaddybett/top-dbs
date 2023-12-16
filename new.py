@@ -26,4 +26,6 @@ Session = sessionmaker(bind=engine)
 session = Session()    
 
 def add_member(memberName,memberAge,memberEmail,):
-    exists = session.query(Member).filter_by()
+    exists = session.query(Member).filter_by(memberEmail=memberEmail).first()
+    if exists:
+        print('Email already exists')
