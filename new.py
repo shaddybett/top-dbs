@@ -9,4 +9,4 @@ Base = declarative_base
 
 class Member(Base):
     __tablename__='members'
-    memberId
+    memberId = Column('memberId',String,primary_key=True,default=generate_uuid)
