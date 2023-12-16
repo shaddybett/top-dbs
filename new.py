@@ -39,22 +39,22 @@ memberEmail='am@gmail.com'
 memberAge = 16
 # add_member(memberName,memberAge,memberEmail)
 
-def update_member(memberAge):
-    member = session.query(Member).filter_by(memberAge=memberAge).first()
-    if member:
-        if member.memberAge > 15:
-            member.memberAge +=1
-            session.commit()
-        else:
-            print('Aint aging fr')  
-    else:
-        print('member not found')        
+# def update_member(memberAge):
+#     member = session.query(Member).filter_by(memberAge=memberAge).first()
+#     if member:
+#         if member.memberAge > 15:
+#             member.memberAge +=1
+#             session.commit()
+#         else:
+#             print('Aint aging fr')  
+#     else:
+#         print('member not found')        
 
-def delete_member(memberAge):
-    members = session.query(Member).filter_by(memberAge=memberAge).all()
-    if members:
-        for member in members:
-            session.delete(member) 
-        session.commit()      
-    else:
-        print('Members not found')    
+# def delete_member(memberAge):
+#     members = session.query(Member).filter_by(memberAge=memberAge).all()
+#     if members:
+#         for member in members:
+#             session.delete(member) 
+#         session.commit()      
+#     else:
+#         print('Members not found')    
