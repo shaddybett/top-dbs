@@ -30,31 +30,31 @@ def add_member(memberName,memberAge,memberEmail,):
     if exists:
         print('Email already exists') 
     else:
-        new_member=Member(memberName=memberName,memberEmail=memberEmail,memberAge=memberAge)
+        new_member=Member(memberName=memberName,memberAge=memberAge,memberEmail=memberEmail)
         session.add(new_member)
         session.commit()    
 
-memberName = 'Aisha'
-memberEmail='aisha@gmail.com'
-memberAge = 18
-# add_member(memberName,memberEmail,memberAge)
+memberName = 'Am'
+memberEmail='am@gmail.com'
+memberAge = 16
+# add_member(memberName,memberAge,memberEmail)
 
-def update_member(memberEmail):
-    member = session.query(Member).filter_by(memberEmail=memberEmail).first()
+def update_member(memberAge):
+    member = session.query(Member).filter_by(memberAge=memberAge).first()
     if member:
-        if member.memberEmail > 25:
-            member.memberEmail +=1
+        if member.memberAge > 15:
+            member.memberAge +=1
             session.commit()
         else:
             print('Aint aging fr')  
     else:
         print('member not found')        
 
-# def delete_member(memberAge):
-#     members = session.query(Member).filter_by(memberAge=memberAge).all()
-#     if members:
-#         for member in members:
-#             session.delete(member) 
-#         session.commit()      
-#     else:
-#         print('Members not found')    
+def delete_member(memberAge):
+    members = session.query(Member).filter_by(memberAge=memberAge).all()
+    if members:
+        for member in members:
+            session.delete(member) 
+        session.commit()      
+    else:
+        print('Members not found')    
