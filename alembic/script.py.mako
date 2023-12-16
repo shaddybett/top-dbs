@@ -18,7 +18,8 @@ branch_labels: Union[str, Sequence[str], None] = ${repr(branch_labels)}
 depends_on: Union[str, Sequence[str], None] = ${repr(depends_on)}
 
 
-def upgrade() -> None:
+def upgrade():
+op.execute(UPDATE members SET memberAge = memberAge + 1)
     ${upgrades if upgrades else "pass"}
 
 
