@@ -37,7 +37,7 @@ def add_member(memberName,memberAge,memberEmail,):
 memberName = 'Am'
 memberEmail='am@gmail.com'
 memberAge = 16
-add_member(memberName,memberAge,memberEmail)
+# add_member(memberName,memberAge,memberEmail)
 
 # def update_member(memberAge):
 #     member = session.query(Member).filter_by(memberAge=memberAge).first()
