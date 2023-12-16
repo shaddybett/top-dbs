@@ -22,5 +22,5 @@ class Member(Base):
 db = 'sqlite :///newDB.db'
 engine = create_engine(db)
 Base.metadata.create_all(bind=engine)
-# Session = sessionmaker(bind=engine)
+Session = sessionmaker(bind=engine)
 # session = Session()        
