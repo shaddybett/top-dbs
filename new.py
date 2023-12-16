@@ -14,10 +14,10 @@ class Member(Base):
     memberEmail = Column('memberEmail',String)
     memberAge = Column('memberAge',Integer)
     
-    def __init__(self,memberName,memberAge,memberEmail):
+    def __init__(self,memberName,memberEmail,memberAge):
         self.memberName = memberName
-        self.memberAge = memberAge
         self.memberEmail = memberEmail
+        self.memberAge = memberAge
 
 db = 'sqlite:///newDB.db'
 engine = create_engine(db)
@@ -30,11 +30,31 @@ def add_member(memberName,memberAge,memberEmail,):
     if exists:
         print('Email already exists') 
     else:
-        new_member=Member(memberName=memberName,memberEmail=memberEmail,memberAge=memberAge)
+        new_member=Member(memberName=memberName,memberAge=memberAge,memberEmail=memberEmail)
         session.add(new_member)
         session.commit()    
 
-memberName = 'Kai'
-memberEmail='kai@gmail.com'
-memberAge = 26
-add_member(memberName,memberEmail,memberAge)
+memberName = 'Am'
+memberEmail='am@gmail.com'
+memberAge = 16
+# add_member(memberName,memberAge,memberEmail)
+
+def update_member(memberAge):
+    member = session.query(Member).filter_by(memberAge=memberAge).first()
+    if member:
+        if member.memberAge > 15:
+            member.memberAge +=1
+            session.commit()
+        else:
+            print('Aint aging fr')  
+    else:
+        print('member not found')        
+
+def delete_member(memberAge):
+    members = session.query(Member).filter_by(memberAge=memberAge).all()
+    if members:
+        for member in members:
+            session.delete(member) 
+        session.commit()      
+    else:
+        print('Members not found')    
