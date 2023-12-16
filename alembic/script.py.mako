@@ -19,7 +19,7 @@ depends_on: Union[str, Sequence[str], None] = ${repr(depends_on)}
 
 
 def upgrade():
-op.execute(UPDATE members SET memberAge = memberAge + 1)
+    op.execute("UPDATE members SET memberAge = memberAge + 1")
     ${upgrades if upgrades else "pass"}
 
 
